@@ -1,0 +1,17 @@
+{
+  "name": "IoT_LoRaWAN",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/leo-PeD-Hion/IoT_LoRaWAN.git",
+  "author": "leo-PeD-Hion <leonardo.tancredi@hiontecnologia.com.br>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js ",
+    "teste": "nodemon index.js "
+  },
+  "dependencies": {
+    "body-parser": "1.20.2",
+    "express": "4.18.2",
+    "nodemon": "2.0.22"
+  }
+}
