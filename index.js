@@ -26,11 +26,15 @@ const { reset } = require('nodemon');
     app.vini = 0;
     app.httpRecebido = 0;
     let resultado = 0;
+    let LORAresultado = 0;
+    let totalLora = 0;
 //rota para recetar as variáveis
             app.get('/reset', function (req, res) {
                                 app.vini = 0;
                                 app.httpRecebido = 0;
                                 resultado = 0;
+                                LORAresultado = 0;
+                                totalLora = 0;
                                 console.log("resetar as variáveis internas");
                                 return res.status(200).send("Reiniciado as variáveis");
 
@@ -46,14 +50,17 @@ const { reset } = require('nodemon');
         
 
         if((req.body.params.payload != undefined || req.body.params.payload != null)){
+            
             //dado da requisição
-                console.log("CONTAGEM DO LORA ");
-                console.log("req.body.params.counter_up");
-                console.log(req.body.params.counter_up);
             //contador de requisições recebidas 
                 app.vini ++;
             //printas valores 
             console.log('=====NOVO NOVO ===============================');
+            
+            console.log("CONTAGEM DO LORA ");
+            console.log("req.body.params.counter_up");
+            console.log(req.body.params.counter_up);
+            console.log('  ');
             console.log('Seu pacote chegou com sucesso!');
             console.log(timer);
             console.log('  ');
@@ -65,8 +72,12 @@ const { reset } = require('nodemon');
             console.log('Diferença entre request recebido vazio para recebido com payload: ',resultado);
             console.log('  ');
             console.log('  ');
+            LORAresultado = Math.floor(100*((req.body.params.counter_up-app.httpRecebido)/(req.body.params.counter_up)));
             resultado = Math.floor(100*( app.httpRecebido - app.vini)/app.httpRecebido);
+            totalLora = Math.floor(100*((req.body.params.counter_up-app.vini)/(req.body.params.counter_up)));
             console.log('Porcentagem de mensagens vazias: ',resultado);
+            console.log('Porcentagem de mensagens perdidas durante a transmissão: ',LORAresultado);
+            console.log('Porcentagem de mensagens efetivamente lida: ',LORAresultado);
 
     
                    
