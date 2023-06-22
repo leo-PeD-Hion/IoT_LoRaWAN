@@ -15,3 +15,7 @@ RECEBER DADOS DE IOT VIA TRANSMISSÃO LORA
 
 ## v0.3 analise precisa  da eficiencia
 * analiso a eficiencia da transmissão
+
+## v0.4 arrumado analise precisa  da eficiencia
+* ` Porcentagem de mensagens efetivamente lida:` estava mostrando o inverso, ou seja 1-%
+*

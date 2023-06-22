@@ -74,7 +74,7 @@ const { reset } = require('nodemon');
             console.log('  ');
             LORAresultado = Math.floor(100*((req.body.params.counter_up-app.httpRecebido)/(req.body.params.counter_up)));
             resultado = Math.floor(100*( app.httpRecebido - app.vini)/app.httpRecebido);
-            totalLora = Math.floor(100*((req.body.params.counter_up-app.vini)/(req.body.params.counter_up)));
+            totalLora = Math.floor(100*(1-((req.body.params.counter_up-app.vini)/(req.body.params.counter_up))));
             console.log('Porcentagem de mensagens vazias: ',resultado);
             console.log('Porcentagem de mensagens perdidas durante a transmissão: ',LORAresultado);
             console.log('Porcentagem de mensagens efetivamente lida: ',LORAresultado);
